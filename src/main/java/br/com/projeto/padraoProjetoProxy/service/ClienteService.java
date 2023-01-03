@@ -1,21 +1,19 @@
 package br.com.projeto.padraoProjetoProxy.service;
 
-import br.com.projeto.padraoProjetoProxy.repositoy.ClienteRepositoy;
+import br.com.projeto.padraoProjetoProxy.repositoy.IClienteRepository;
 
 public class ClienteService {
 
-    private ClienteRepositoy clienteRepositoy;
+    private IClienteRepository iClienteRepositoy;
 
-    public ClienteService(ClienteRepositoy clienteRepositoy) {
-        this.clienteRepositoy = clienteRepositoy;
+    public ClienteService(IClienteRepository iClienteRepositoy) {
+        this.iClienteRepositoy = iClienteRepositoy;
     }
 
     public String findById(long id)  {
 
-        return clienteRepositoy.findById(id);
+        return iClienteRepositoy.findById(id);
 
     }
-
-
     
 }

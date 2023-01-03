@@ -1,6 +1,6 @@
 package br.com.projeto.padraoProjetoProxy.repositoy;
 
-public class ClienteRepositoyLogProxy extends ClienteRepositoy {
+public class ClienteRepositoryLogProxy implements IClienteRepository {
 
     @Override
     public String findById(long id) {
@@ -8,11 +8,11 @@ public class ClienteRepositoyLogProxy extends ClienteRepositoy {
         String retorno = "";
         
         retorno = "Log antes - ";
-        retorno += super.findById(id);
+        retorno += new ClienteRepository().findById(id);
         retorno += " - Log após";
 
         return retorno;
-    } 
 
+    }
 
 }

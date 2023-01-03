@@ -5,17 +5,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import br.com.projeto.padraoProjetoProxy.repositoy.ClienteRepositoy;
-import br.com.projeto.padraoProjetoProxy.repositoy.ClienteRepositoyLogProxy;
+import br.com.projeto.padraoProjetoProxy.repositoy.ClienteRepository;
+import br.com.projeto.padraoProjetoProxy.repositoy.ClienteRepositoryLogProxy;
 import br.com.projeto.padraoProjetoProxy.service.ClienteService;
 
 @SpringBootTest
 class PadraoProjetoProxyApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void buscarClienteSemPadraoProxy_quandoSucesso() {
 
-		ClienteService clienteService = new ClienteService(new ClienteRepositoy());
+		ClienteService clienteService = new ClienteService(new ClienteRepository());
 
 		String retorno = clienteService.findById(1);
 
@@ -26,7 +26,7 @@ class PadraoProjetoProxyApplicationTests {
 	@Test
 	void contextLoadsx() {
 
-		ClienteService clienteService = new ClienteService(new ClienteRepositoyLogProxy());
+		ClienteService clienteService = new ClienteService(new ClienteRepositoryLogProxy());
 
 		String retorno = clienteService.findById(1);
 
